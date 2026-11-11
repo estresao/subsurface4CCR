@@ -1,3 +1,4 @@
+// AI-generated (Claude)
 // SPDX-License-Identifier: GPL-2.0
 
 // Java classes for handling Intents on Android (which in this case means
@@ -6,7 +7,7 @@
 
 // Created while looking at https://github.com/ekke/ekkesSHAREexample
 
-package org.subsurfacedivelog.mobile;
+package org.subsurfacedivelog.mobile4ccr;
 
 import org.qtproject.qt.android.bindings.QtActivity;
 import android.os.*;
@@ -39,7 +40,7 @@ import java.util.Comparator;
 public class SubsurfaceMobileActivity extends QtActivity
 {
 	// FileProvider declares an 'authority' in AndroidManifest.xml
-	private static String fileProviderAuthority="org.subsurfacedivelog.mobile.fileprovider";
+	private static String fileProviderAuthority="org.subsurfacedivelog.mobile4ccr.fileprovider";
 
 	// you can share one or two files
 	public boolean shareViaEmail(String subject, String recipient, String body, String path1, String path2) {
@@ -384,7 +385,7 @@ public class SubsurfaceMobileActivity extends QtActivity
 		}
 
 		// Register the usb permission intent filter.
-		IntentFilter filter = new IntentFilter("org.subsurfacedivelog.mobile.USB_PERMISSION");
+		IntentFilter filter = new IntentFilter("org.subsurfacedivelog.mobile4ccr.USB_PERMISSION");
 		registerReceiver(usbReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
 
 	} // onCreate
@@ -466,7 +467,7 @@ public class SubsurfaceMobileActivity extends QtActivity
 	{
 		public void onReceive(Context context, Intent intent) {
 			String action = intent.getAction();
-			if ("org.subsurfacedivelog.mobile.USB_PERMISSION".equals(action)) {
+			if ("org.subsurfacedivelog.mobile4ccr.USB_PERMISSION".equals(action)) {
 				synchronized (this) {
 					if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
 						UsbDevice device = getUsbDevice(intent);

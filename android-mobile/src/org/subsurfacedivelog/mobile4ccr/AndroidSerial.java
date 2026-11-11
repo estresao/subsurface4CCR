@@ -1,4 +1,5 @@
-package org.subsurfacedivelog.mobile;
+// AI-generated (Claude)
+package org.subsurfacedivelog.mobile4ccr;
 
 import com.hoho.android.usbserial.driver.*;
 
@@ -13,7 +14,7 @@ import android.util.Log;
 import android.app.PendingIntent;
 import android.content.Intent;
 
-import org.subsurfacedivelog.mobile.SubsurfaceMobileActivity;
+import org.subsurfacedivelog.mobile4ccr.SubsurfaceMobileActivity;
 
 import java.lang.System;
 import java.lang.Class;
@@ -152,7 +153,7 @@ public class AndroidSerial {
 			UsbDeviceConnection connection = manager.openDevice(usbDevice);
 
 			if (connection == null) {
-				manager.requestPermission(usbDevice, PendingIntent.getBroadcast(context, 0, new Intent("org.subsurfacedivelog.mobile.USB_PERMISSION"), PendingIntent.FLAG_IMMUTABLE));
+				manager.requestPermission(usbDevice, PendingIntent.getBroadcast(context, 0, new Intent("org.subsurfacedivelog.mobile4ccr.USB_PERMISSION"), PendingIntent.FLAG_IMMUTABLE));
 				Log.w(TAG, "Could not open device. Requesting permission.");
 				return null;
 			}

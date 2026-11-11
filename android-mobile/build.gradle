@@ -61,10 +61,10 @@ android {
 
     buildToolsVersion androidBuildToolsVersion
 
-    namespace = "org.subsurfacedivelog.mobile"
+    namespace = "org.subsurfacedivelog.mobile4ccr"
 
     defaultConfig {
-        applicationId project.findProperty("subsurfaceApplicationId") ?: "org.subsurfacedivelog.mobile"
+        applicationId project.findProperty("subsurfaceApplicationId") ?: "org.subsurfacedivelog.mobile4ccr"
         minSdkVersion 28
         targetSdkVersion 36
     }
