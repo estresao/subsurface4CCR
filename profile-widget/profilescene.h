@@ -93,6 +93,9 @@ private:
 	PartialPressureGasItem *ccrsensor1GasItem;
 	PartialPressureGasItem *ccrsensor2GasItem;
 	PartialPressureGasItem *ccrsensor3GasItem;
+	PartialPressureGasItem *ccrsensor4GasItem;
+	PartialPressureGasItem *ccrsensor5GasItem;
+	PartialPressureGasItem *ccrsensor6GasItem;
 	PartialPressureGasItem *ocpo2GasItem;
 	DiveCalculatedCeiling *diveCeiling;
 	DiveTextItem *decoModelParameters;

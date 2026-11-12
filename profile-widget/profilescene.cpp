@@ -139,6 +139,12 @@ ProfileScene::ProfileScene(double dpr, bool printMode, bool isGrayscale) :
 				      CCRSENSOR2, PO2_ALERT, &prefs.pp_graphs.po2_threshold_min, &prefs.pp_graphs.po2_threshold_max)),
 	ccrsensor3GasItem(createPPGas([](const plot_data &item) { return item.o2sensor[2].mbar / 1000.0; },
 				      CCRSENSOR3, PO2_ALERT, &prefs.pp_graphs.po2_threshold_min, &prefs.pp_graphs.po2_threshold_max)),
+	ccrsensor4GasItem(createPPGas([](const plot_data &item) { return item.o2sensor[3].mbar / 1000.0; },
+				      CCRSENSOR4, PO2_ALERT, &prefs.pp_graphs.po2_threshold_min, &prefs.pp_graphs.po2_threshold_max)),
+	ccrsensor5GasItem(createPPGas([](const plot_data &item) { return item.o2sensor[4].mbar / 1000.0; },
+				      CCRSENSOR5, PO2_ALERT, &prefs.pp_graphs.po2_threshold_min, &prefs.pp_graphs.po2_threshold_max)),
+	ccrsensor6GasItem(createPPGas([](const plot_data &item) { return item.o2sensor[5].mbar / 1000.0; },
+				      CCRSENSOR6, PO2_ALERT, &prefs.pp_graphs.po2_threshold_min, &prefs.pp_graphs.po2_threshold_max)),
 	ocpo2GasItem(createPPGas([](const plot_data &item) { return item.scr_OC_pO2.mbar / 1000.0; },
 				 SCR_OCPO2, PO2_ALERT, &prefs.pp_graphs.po2_threshold_min, &prefs.pp_graphs.po2_threshold_max)),
 	diveCeiling(createItem<DiveCalculatedCeiling>(*profileYAxis,
@@ -235,6 +241,9 @@ void ProfileScene::updateVisibility(bool diveHasHeartBeat, bool simplified)
 		ccrsensor2GasItem->setVisible(ppGraphs && prefs.show_ccr_sensors && (currentdc->no_o2sensors > 1));
 		ccrsensor3GasItem->setVisible(ppGraphs && prefs.show_ccr_sensors && (currentdc->no_o2sensors > 2));
 		ocpo2GasItem->setVisible((currentdc->divemode == PSCR) && prefs.show_scr_ocpo2);
+			ccrsensor4GasItem->setVisible(ppGraphs && prefs.show_ccr_sensors && (currentdc->no_o2sensors > 3));
+			ccrsensor5GasItem->setVisible(ppGraphs && prefs.show_ccr_sensors && (currentdc->no_o2sensors > 4));
+			ccrsensor6GasItem->setVisible(ppGraphs && prefs.show_ccr_sensors && (currentdc->no_o2sensors > 5));
 		// No point to show the gradient factor if we're not showing the calculated ceiling that is derived from it
 		decoModelParameters->setVisible(prefs.calcceiling);
 	} else {
@@ -248,6 +257,9 @@ void ProfileScene::updateVisibility(bool diveHasHeartBeat, bool simplified)
 		ccrsensor1GasItem->setVisible(sensorflag);
 		ccrsensor2GasItem->setVisible(sensorflag && currentdc->no_o2sensors > 1);
 		ccrsensor3GasItem->setVisible(sensorflag && currentdc->no_o2sensors > 2);
+		ccrsensor4GasItem->setVisible(sensorflag && currentdc->no_o2sensors > 3);
+		ccrsensor5GasItem->setVisible(sensorflag && currentdc->no_o2sensors > 4);
+		ccrsensor6GasItem->setVisible(sensorflag && currentdc->no_o2sensors > 5);
 		ocpo2GasItem->setVisible(currentdc->divemode == PSCR && prefs.show_scr_ocpo2);
 
 		heartBeatItem->setVisible(prefs.hrgraph && diveHasHeartBeat);
